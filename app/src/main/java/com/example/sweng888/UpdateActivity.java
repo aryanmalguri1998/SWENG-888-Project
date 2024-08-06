@@ -46,12 +46,14 @@ public class UpdateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
 
+        // Initialize UI elements
         updateButton = findViewById(R.id.updateButton);
         updateDesc = findViewById(R.id.updateDesc);
         updateImage = findViewById(R.id.updateImage);
         updateLang = findViewById(R.id.updateLang);
         updateTitle = findViewById(R.id.updateTitle);
 
+        // Setup ActivityResultLauncher for image selection
         ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 new ActivityResultCallback<ActivityResult>() {
@@ -68,6 +70,7 @@ public class UpdateActivity extends AppCompatActivity {
                 }
         );
 
+        // Retrieve data from the Intent and populate the UI elements
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             Glide.with(UpdateActivity.this).load(bundle.getString("Image")).into(updateImage);
@@ -79,6 +82,7 @@ public class UpdateActivity extends AppCompatActivity {
         }
         databaseReference = FirebaseDatabase.getInstance().getReference("Android Uploads").child(key);
 
+        // Set an OnClickListener for the ImageView to pick an image from gallery
         updateImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,6 +92,7 @@ public class UpdateActivity extends AppCompatActivity {
             }
         });
 
+        // Set an OnClickListener for the update button to save the updated data
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -96,16 +101,19 @@ public class UpdateActivity extends AppCompatActivity {
         });
     }
 
+    // Save the updated data
     public void saveData() {
         if (uri != null) {
             storageReference = FirebaseStorage.getInstance().getReference().child("Android Images").child(uri.getLastPathSegment());
 
+            // Show a progress dialog while the image is uploading
             AlertDialog.Builder builder = new AlertDialog.Builder(UpdateActivity.this);
             builder.setCancelable(false);
             builder.setView(R.layout.progress_layout);
             AlertDialog dialog = builder.create();
             dialog.show();
 
+            // Upload the image to Firebase Storage
             storageReference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -128,6 +136,7 @@ public class UpdateActivity extends AppCompatActivity {
         }
     }
 
+    // Update the data in Firebase Database
     public void updateData() {
         title = updateTitle.getText().toString().trim();
         desc = updateDesc.getText().toString().trim();
@@ -170,8 +179,8 @@ public class UpdateActivity extends AppCompatActivity {
         });
     }
 
+    // Navigate back to MainActivity
     private void navigateToMainActivity() {
-        // Navigate back to MainActivity or equivalent
         Intent intent = new Intent(UpdateActivity.this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
