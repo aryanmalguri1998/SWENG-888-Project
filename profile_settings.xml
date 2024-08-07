@@ -1,0 +1,79 @@
+<!-- res/layout/fragment_profile.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".ProfileFragment">
+
+    <!-- Profile Picture -->
+    <ImageView
+        android:id="@+id/profile_picture"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/baseline_person_24"
+        android:contentDescription="@string/profile_picture" />
+
+    <!-- User Name -->
+    <TextView
+        android:id="@+id/profile_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="User Name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold" />
+
+    <!-- User Email -->
+    <TextView
+        android:id="@+id/profile_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:text="user@example.com"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <!-- User Bio -->
+    <TextView
+        android:id="@+id/profile_bio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:text="Bio"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <!-- User Pronouns -->
+    <TextView
+        android:id="@+id/profile_pronouns"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:text="Pronouns"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <!-- User Nationality -->
+    <TextView
+        android:id="@+id/profile_nationality"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="32dp"
+        android:text="Nationality"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <!-- Edit Profile Button -->
+    <Button
+        android:id="@+id/btn_edit_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/edit_profile"
+        android:layout_marginBottom="16dp" />
+
+</LinearLayout>
+
