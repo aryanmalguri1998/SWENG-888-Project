@@ -1,4 +1,4 @@
-package com.example.photogalleryapplication;
+package com.example.sweng888;
 
 
 import android.content.Intent;
