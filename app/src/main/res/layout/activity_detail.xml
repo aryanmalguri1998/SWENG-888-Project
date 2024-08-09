@@ -60,10 +60,12 @@
 
             <!-- Like Section -->
             <LinearLayout
+                android:id="@+id/likeSection"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="16dp">
+                android:padding="16dp"
+                android:visibility="gone"> <!-- Hiding this section -->
 
                 <TextView
                     android:id="@+id/likeCountText"
@@ -83,20 +85,23 @@
 
             <!-- Comments Section -->
             <TextView
+                android:id="@+id/commentsLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Comments"
                 android:textSize="18sp"
                 android:textColor="@color/lavender"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"/>
+                android:layout_marginTop="16dp"
+                android:visibility="gone"/> <!-- Hiding this label -->
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/commentsRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:padding="16dp" />
+                android:padding="16dp"
+                android:visibility="gone"/> <!-- Hiding this RecyclerView -->
 
         </LinearLayout>
     </ScrollView>
@@ -107,7 +112,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:visibility="gone"> <!-- Hiding the comment section -->
 
         <EditText
             android:id="@+id/commentInput"
@@ -123,7 +129,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="Post" />
-
     </LinearLayout>
 
     <!-- Floating Action Menu -->
@@ -131,7 +136,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_above="@id/bottomSection"
+        android:layout_alignParentBottom="true"
         android:layout_marginBottom="20dp"
         android:layout_marginEnd="20dp"
         app:menu_fab_size="normal"
