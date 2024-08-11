@@ -39,16 +39,16 @@
 
         <!-- Priority TextView -->
         <TextView
+            android:id="@+id/recPriority"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:id="@+id/recPriority"
-            android:text="priority"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
+            android:text="priority"
             android:textAlignment="center"
             android:textColor="@color/lavender"
-            android:textSize="16sp"/>
+            android:textSize="16sp" />
 
         <!-- Description TextView -->
         <TextView
@@ -110,7 +110,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/commentCount"
-                android:text="0"
+                android:text=""
                 android:textColor="@color/lavender"
                 android:layout_marginStart="5dp"
                 android:textSize="14sp" />
